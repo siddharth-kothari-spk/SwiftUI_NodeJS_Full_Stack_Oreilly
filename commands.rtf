@@ -2,9 +2,11 @@
 \cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;\f2\fmodern\fcharset0 Courier-Bold;
 }
 {\colortbl;\red255\green255\blue255;\red255\green238\blue149;\red21\green102\blue47;\red0\green0\blue0;
-\red255\green255\blue255;\red43\green43\blue43;\red88\green229\blue64;\red204\green203\blue60;}
+\red255\green255\blue255;\red43\green43\blue43;\red88\green229\blue64;\red204\green203\blue60;\red254\green238\blue148;
+\red255\green255\blue255;\red203\green203\blue60;\red88\green228\blue63;}
 {\*\expandedcolortbl;;\cssrgb\c100000\c94118\c64706;\cssrgb\c7451\c46667\c23922;\cssrgb\c0\c0\c0;
-\cssrgb\c100000\c100000\c99985;\cssrgb\c22253\c22253\c22253;\cssrgb\c39494\c89863\c31577;\cssrgb\c83616\c82457\c29976;}
+\cssrgb\c100000\c100000\c99985;\cssrgb\c22253\c22253\c22253;\cssrgb\c39494\c89863\c31577;\cssrgb\c83616\c82457\c29976;\cssrgb\c99937\c94027\c64490;
+\cssrgb\c100000\c100000\c100000;\cssrgb\c83415\c82213\c29628;\cssrgb\c39362\c89724\c31326;}
 \paperw11900\paperh16840\margl1440\margr1440\vieww30040\viewh17760\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -85,7 +87,32 @@ node    11979 siddharthkothari   18u  IPv6 0xcaae478fb075d5cd      0t0  TCP *:hb
 kill -9 11979 \
 \cf4 \cb5 // [3]  - 11979 killed     node src/index.js \
 \
-Now http://localhost:3000/notes will point to our notes.json\cf2 \cb3 \
+Now http://localhost:3000/notes will point to our notes.json\
+\
+\
+Update scripts in package.json\
+\
+\cf2 \cb3 npm run dev\
+\cf4 \cb5 Output :\
+\cf9 \cb10 > notes-api@1.0.0 dev\
+> nodemon src/index.js\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf11 [nodemon] 3.1.0\cf9 \
+\cf11 [nodemon] to restart at any time, enter `rs`\cf9 \
+\cf11 [nodemon] watching path(s): *.*\cf9 \
+\cf11 [nodemon] watching extensions: js,mjs,cjs,json\cf9 \
+\cf12 [nodemon] starting `node src/index.js`\cf9 \
+Server is up on port 3000\cf2 \cb3 \
+\
+npm run start\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf4 \cb5 Output:\cf2 \cb3 \
+\cf9 \cb10 > notes-api@1.0.0 start\
+> node src/index.js\
+\
+Server is up on port 3000\cf2 \cb3 \
+\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf2 \
 }
