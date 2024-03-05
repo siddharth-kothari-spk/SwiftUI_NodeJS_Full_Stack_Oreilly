@@ -1,0 +1,10 @@
+{
+    "note1": {
+        "note": "Sample dummy note 1",
+        "id": 1
+    },
+    "note2": {
+        "note": "Sample dummy note 2",
+        "id": 2
+    }
+}

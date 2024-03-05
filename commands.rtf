@@ -1,10 +1,11 @@
 {\rtf1\ansi\ansicpg1252\cocoartf2759
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;}
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;\f2\fmodern\fcharset0 Courier-Bold;
+}
 {\colortbl;\red255\green255\blue255;\red255\green238\blue149;\red21\green102\blue47;\red0\green0\blue0;
-\red255\green255\blue255;}
+\red255\green255\blue255;\red43\green43\blue43;\red88\green229\blue64;\red204\green203\blue60;}
 {\*\expandedcolortbl;;\cssrgb\c100000\c94118\c64706;\cssrgb\c7451\c46667\c23922;\cssrgb\c0\c0\c0;
-\cssrgb\c100000\c100000\c99985;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\cssrgb\c100000\c100000\c99985;\cssrgb\c22253\c22253\c22253;\cssrgb\c39494\c89863\c31577;\cssrgb\c83616\c82457\c29976;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww30040\viewh17760\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 Commands :\
@@ -34,7 +35,57 @@ touch index.js\
 \
 npm install express mongoose nodemon --save\
 \
+npm install fs\
 \
+\
+
+\f2\b\fs48 Errors
+\f1\b0\fs28 \
+node src/index.js \cf4 \cb5 // error came as port 3000 is still open\cf2 \cb3 \
+node:events:496\
+      throw er; // Unhandled 'error' event\
+      ^\
+\
+Error: listen EADDRINUSE: address already in use :::3000\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf6 \cb3     at Server.setupListenHandle [as _listen2] (node:net:1872:16)\cf2 \cb3 \
+\cf6 \cb3     at listenInCluster (node:net:1920:12)\cf2 \cb3 \
+\cf6 \cb3     at Server.listen (node:net:2008:7)\cf2 \cb3 \
+    at Function.listen \cf6 \cb3 (/Users/siddharthkothari/Documents/TestProjects/SwiftUI_NodeJS_Full_Stack_Oreilly/notes-api/\cf2 \cb3 node_modules/\cf2 \cb3 \ul \ulc2 express\cf2 \cb3 \ulnone /lib/application.js:635:24\cf6 \cb3 )\cf2 \cb3 \
+    at Object.<anonymous> \cf6 \cb3 (/Users/siddharthkothari/Documents/TestProjects/SwiftUI_NodeJS_Full_Stack_Oreilly/notes-api/\cf2 \cb3 src/index.js:11:5\cf6 \cb3 )\cf2 \cb3 \
+\cf6 \cb3     at Module._compile (node:internal/modules/cjs/loader:1376:14)\cf2 \cb3 \
+\cf6 \cb3     at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)\cf2 \cb3 \
+\cf6 \cb3     at Module.load (node:internal/modules/cjs/loader:1207:32)\cf2 \cb3 \
+\cf6 \cb3     at Module._load (node:internal/modules/cjs/loader:1023:12)\cf2 \cb3 \
+\cf6 \cb3     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:135:12)\cf2 \cb3 \
+Emitted 'error' event on Server instance at:\
+\cf6 \cb3     at emitErrorNT (node:net:1899:8)\cf2 \cb3 \
+\cf6 \cb3     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)\cf2 \cb3  \{\
+  code: \cf7 \cb3 'EADDRINUSE'\cf2 \cb3 ,\
+  errno: \cf8 \cb3 -48\cf2 \cb3 ,\
+  syscall: \cf7 \cb3 'listen'\cf2 \cb3 ,\
+  address: \cf7 \cb3 '::'\cf2 \cb3 ,\
+  port: \cf8 \cb3 3000\cf2 \cb3 \
+\}\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf4 \cb5 To close the port:\cf2 \cb3 \
+\
+lsof -I:3000 \cf4 \cb5 // this will give all details about port 3000\cf2 \cb3 \
+\
+COMMAND   PID             USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\
+node    11979 siddharthkothari   18u  IPv6 0xcaae478fb075d5cd      0t0  TCP *:hbci (LISTEN)\
+\
+\cf4 \cb5 Now we can kill using PID\
+\
+\cf2 \cb3 kill 11979\
+\
+\cf4 \cb5 0r\cf2 \cb3 \
+\
+kill -9 11979 \
+\cf4 \cb5 // [3]  - 11979 killed     node src/index.js \
+\
+Now http://localhost:3000/notes will point to our notes.json\cf2 \cb3 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf2 \
 }
