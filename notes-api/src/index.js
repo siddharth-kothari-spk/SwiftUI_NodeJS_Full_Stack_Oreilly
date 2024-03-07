@@ -12,6 +12,7 @@ app.use(express.json())
 
 //const mongoose = require('mongoose');
 
+// READ
 app.get('/notes', async (req, res) => {
 
     try {
@@ -29,6 +30,7 @@ app.get('/notes', async (req, res) => {
     })*/
 })
 
+// CREATE
 app.post('/notes', async (req, res) => {
 
     const note = new Note({
@@ -62,6 +64,23 @@ app.post('/notes', async (req, res) => {
     }
 })
 
+// UPDATE
+app.patch('./updateNote/:id', async (req, res) => {
+    
+
+    try {
+        const note = await Note.findById(req.params.id)
+        note.note = req.body.note
+
+        await note.save()
+        console.log("note updated")
+        res.status(200).send(note)
+
+    } catch (error) {
+        console.log("error in fetching note with id:", req.params.id)
+        res.status(404).send(error)
+    }
+})
 app.listen(3000, () => {
     console.log("Server is up on port 3000")
 })
