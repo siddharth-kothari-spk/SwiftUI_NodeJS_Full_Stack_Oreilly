@@ -70,6 +70,9 @@ app.patch('./updateNote/:id', async (req, res) => {
 
     try {
         const note = await Note.findById(req.params.id)
+        if (!note) {
+            return res.status(404).send("note not exist for id:",req.params.id)
+           }
         note.note = req.body.note
 
         await note.save()
@@ -81,6 +84,26 @@ app.patch('./updateNote/:id', async (req, res) => {
         res.status(404).send(error)
     }
 })
+
+// DELETE
+app.delete('./deleteNote/:id', async (req, res) => {
+
+    try {
+        const note = await Note.findByIdAndDelete(req.params.id)
+       // await note.delete()
+
+       if (!note) {
+        return res.status(404).send("note not exist for id:",req.params.id)
+       }
+        console.log("note deleted")
+        res.status(200).send("note deleted")
+    
+    } catch (error) {
+        console.log("error in fetching note with id:", req.params.id)
+        res.status(404).send(error)
+    }
+})
+
 app.listen(3000, () => {
     console.log("Server is up on port 3000")
 })
