@@ -12,9 +12,14 @@ app.use(express.json())
 
 //const mongoose = require('mongoose');
 
-app.get('/notes', (req, res) => {
+app.get('/notes', async (req, res) => {
 
-    const notes = Note.find({})
+    try {
+        const notes = await Note.find({});
+        res.send(notes)
+    } catch (error) {
+        res.status(500).send(err);
+    }
     /*
     fs.readFile(__dirname + '/' + "notes.json", 'utf-8', (err, data) => {
         if (err) {
@@ -25,6 +30,7 @@ app.get('/notes', (req, res) => {
 })
 
 app.post('/notes', async (req, res) => {
+
     const note = new Note({
         note: req.body.note
     })
