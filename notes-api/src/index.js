@@ -13,15 +13,18 @@ app.use(express.json())
 //const mongoose = require('mongoose');
 
 app.get('/notes', (req, res) => {
+
+    const notes = Note.find({})
+    /*
     fs.readFile(__dirname + '/' + "notes.json", 'utf-8', (err, data) => {
         if (err) {
             return console.log(err)
         }
         res.status(200).send(data)
-    })
+    })*/
 })
 
-app.post('/notes', (req, res) => {
+app.post('/notes', async (req, res) => {
     const note = new Note({
         note: req.body.note
     })
@@ -30,7 +33,9 @@ app.post('/notes', (req, res) => {
     console.log("res.body =", res.body)
     console.log("note =", note)
 
-    note.save()
+   /*
+   // sync way
+   note.save()
     .then(() => {
         console.log("note saved")
         res.status(200).send(note)
@@ -38,7 +43,17 @@ app.post('/notes', (req, res) => {
     .catch((err) => {
         console.log("note not saved")
         res.status(500).send(err)
-    })
+    })*/
+
+    // async way
+    try {
+        await note.save()
+        console.log("note saved")
+        res.status(200).send(note)
+    } catch (error) {
+        console.log("note not saved")
+        res.status(400).send(error)
+    }
 })
 
 app.listen(3000, () => {
