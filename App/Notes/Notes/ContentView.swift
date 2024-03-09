@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var notes: [Note] = [Note]()
     var body: some View {
         NavigationStack {
-            List(0..<9) { index in
-                Text("Hello test: \(index)")
+            List(notes, id: \.self) { note in
+                Text(note.note)
                     .padding()
             }
             .onAppear(perform: {
@@ -30,6 +31,7 @@ struct ContentView: View {
     
     func fetch() {
         guard let notes = NetworkService().fetchNotes() else { return }
+        self.notes = notes
         print("notes= \(notes)")
     }
 }

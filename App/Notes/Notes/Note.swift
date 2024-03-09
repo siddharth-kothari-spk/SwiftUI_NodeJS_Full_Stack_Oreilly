@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Note: Identifiable, Codable {
+struct Note: Identifiable, Codable, Hashable {
     var id: String { _id}
     var _id: String
     // As mongo DB has _id as identifier , and Identifiable protocol needs an attribute named id , so here is th hack for same
