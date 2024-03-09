@@ -29,7 +29,8 @@ struct ContentView: View {
     }
     
     func fetch() {
-        NetworkService().fetchNotes()
+        guard let notes = NetworkService().fetchNotes() else { return }
+        print("notes= \(notes)")
     }
 }
 
