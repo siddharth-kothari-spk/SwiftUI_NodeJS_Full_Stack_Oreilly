@@ -15,6 +15,7 @@
 		B11A4E3F2B9BECEF006CFE27 /* NotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11A4E3E2B9BECEF006CFE27 /* NotesUITests.swift */; };
 		B11A4E412B9BECEF006CFE27 /* NotesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11A4E402B9BECEF006CFE27 /* NotesUITestsLaunchTests.swift */; };
 		B11A4E8E2B9C6F51006CFE27 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11A4E8D2B9C6F51006CFE27 /* Note.swift */; };
+		B11A4E902B9C706E006CFE27 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11A4E8F2B9C706E006CFE27 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		B11A4E3E2B9BECEF006CFE27 /* NotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesUITests.swift; sourceTree = "<group>"; };
 		B11A4E402B9BECEF006CFE27 /* NotesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B11A4E8D2B9C6F51006CFE27 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		B11A4E8F2B9C706E006CFE27 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		B11A4E912B9C720E006CFE27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +99,11 @@
 		B11A4E222B9BECED006CFE27 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				B11A4E912B9C720E006CFE27 /* Info.plist */,
 				B11A4E232B9BECED006CFE27 /* NotesApp.swift */,
 				B11A4E252B9BECED006CFE27 /* ContentView.swift */,
 				B11A4E8D2B9C6F51006CFE27 /* Note.swift */,
+				B11A4E8F2B9C706E006CFE27 /* NetworkService.swift */,
 				B11A4E272B9BECEF006CFE27 /* Assets.xcassets */,
 				B11A4E292B9BECEF006CFE27 /* Preview Content */,
 			);
@@ -262,6 +267,7 @@
 			files = (
 				B11A4E262B9BECED006CFE27 /* ContentView.swift in Sources */,
 				B11A4E242B9BECED006CFE27 /* NotesApp.swift in Sources */,
+				B11A4E902B9C706E006CFE27 /* NetworkService.swift in Sources */,
 				B11A4E8E2B9C6F51006CFE27 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +435,7 @@
 				DEVELOPMENT_TEAM = Q4WH2ZZWCT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Notes/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -458,6 +465,7 @@
 				DEVELOPMENT_TEAM = Q4WH2ZZWCT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Notes/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

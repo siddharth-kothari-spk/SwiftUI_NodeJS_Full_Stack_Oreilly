@@ -14,6 +14,9 @@ struct ContentView: View {
                 Text("Hello test: \(index)")
                     .padding()
             }
+            .onAppear(perform: {
+                fetch()
+            })
             .navigationTitle("Notes")
             .toolbar(content: {
                 Button {
@@ -23,7 +26,10 @@ struct ContentView: View {
                 }
             })
         }
-
+    }
+    
+    func fetch() {
+        NetworkService().fetchNotes()
     }
 }
 
