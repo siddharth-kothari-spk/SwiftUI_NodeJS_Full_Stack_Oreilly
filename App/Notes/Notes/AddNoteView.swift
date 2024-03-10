@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddNoteView: View {
-    @State private var noteEntered: String = ""
+    @State private var noteEntered: String = ""    
     var body: some View {
         HStack {
             TextField("Write a note", text: $noteEntered)
@@ -25,7 +25,8 @@ struct AddNoteView: View {
     }
     
     func addNote() {
-        print("Add Note")
+        print("note entered: \(noteEntered)")
+        NetworkService().postNote(noteEntered)
     }
 }
 
