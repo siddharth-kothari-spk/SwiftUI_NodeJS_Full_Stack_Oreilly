@@ -9,19 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var notes: [Note] = [Note]()
+    @State private var showAdd = false
     var body: some View {
         NavigationStack {
             List(notes, id: \.self) { note in
                 Text(note.note)
                     .padding()
             }
+            .sheet(isPresented: $showAdd, content: {
+                AddNoteView()
+            })
             .onAppear(perform: {
                 fetch()
             })
             .navigationTitle("Notes")
             .toolbar(content: {
                 Button {
-                    print("dummy action")
+                    showAdd.toggle()
                 } label: {
                     Image(systemName: "plus")
                 }
