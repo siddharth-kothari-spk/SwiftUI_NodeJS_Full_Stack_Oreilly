@@ -61,7 +61,29 @@ class NetworkService {
                 print(error)
             }
         }
+        task.resume()
+    }
+    
+    func deleteNote(_ note: Note) {
+
+        let url = URL(string: "http://localhost:3000/notes/\(note._id)")!
         
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard error == nil else { return }
+            guard let data = data else { return }
+            
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any] {
+                    print(json)
+                }
+            }
+            catch (let error) {
+                print(error)
+            }
+        }
         task.resume()
     }
 }

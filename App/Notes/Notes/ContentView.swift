@@ -30,14 +30,12 @@ struct ContentView: View {
             .alert("Delete note", isPresented: $showAlert, actions: {
                 HStack {
                     Button("Delete", role: .destructive) {
-                    
+                        delete()
                     }
                     Button("Cancel", role: .cancel) {
                         print("Deletion cancelled")
                     }
                 }
-               
-                
             })
             .sheet(isPresented: $showAdd, onDismiss: fetch ,content: {
                 AddNoteView()
@@ -60,6 +58,16 @@ struct ContentView: View {
         guard let notes = NetworkService().fetchNotes() else { return }
         self.notes = notes
         print("notes= \(notes)")
+    }
+    
+    func delete() {
+        guard let noteToDelete = deleteItem else {
+            print("No note to delete")
+            return
+        }
+        NetworkService().deleteNote(noteToDelete)
+        deleteItem = nil
+        fetch()
     }
 }
 
