@@ -17,6 +17,7 @@
 		B11A4E8E2B9C6F51006CFE27 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11A4E8D2B9C6F51006CFE27 /* Note.swift */; };
 		B11A4E902B9C706E006CFE27 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11A4E8F2B9C706E006CFE27 /* NetworkService.swift */; };
 		B11A4E932B9DCBDC006CFE27 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11A4E922B9DCBDC006CFE27 /* AddNoteView.swift */; };
+		B11A4E952B9E8960006CFE27 /* UpdateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11A4E942B9E8960006CFE27 /* UpdateNoteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		B11A4E8F2B9C706E006CFE27 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		B11A4E912B9C720E006CFE27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B11A4E922B9DCBDC006CFE27 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
+		B11A4E942B9E8960006CFE27 /* UpdateNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNoteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				B11A4E8D2B9C6F51006CFE27 /* Note.swift */,
 				B11A4E8F2B9C706E006CFE27 /* NetworkService.swift */,
 				B11A4E922B9DCBDC006CFE27 /* AddNoteView.swift */,
+				B11A4E942B9E8960006CFE27 /* UpdateNoteView.swift */,
 				B11A4E272B9BECEF006CFE27 /* Assets.xcassets */,
 				B11A4E292B9BECEF006CFE27 /* Preview Content */,
 			);
@@ -271,6 +274,7 @@
 				B11A4E262B9BECED006CFE27 /* ContentView.swift in Sources */,
 				B11A4E242B9BECED006CFE27 /* NotesApp.swift in Sources */,
 				B11A4E902B9C706E006CFE27 /* NetworkService.swift in Sources */,
+				B11A4E952B9E8960006CFE27 /* UpdateNoteView.swift in Sources */,
 				B11A4E8E2B9C6F51006CFE27 /* Note.swift in Sources */,
 				B11A4E932B9DCBDC006CFE27 /* AddNoteView.swift in Sources */,
 			);

@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var deleteItem: Note?
     
     @State private var editMode: EditMode = .inactive
+    @State private var updateNote: String = ""
     
     var alert: Alert {
         Alert(title: Text("Delete note"), message: Text("Are you sure?"), primaryButton: .destructive(Text("Delete")), secondaryButton: .cancel())
@@ -38,6 +39,10 @@ struct ContentView: View {
                         Text(note.note)
                             .padding()
                     }
+                    .onTapGesture {
+                        updateNote = note.note
+                        showAdd.toggle()
+                    }
                 }
             }
             .alert("Delete note", isPresented: $showAlert, actions: {
@@ -51,7 +56,12 @@ struct ContentView: View {
                 }
             })
             .sheet(isPresented: $showAdd, onDismiss: fetch ,content: {
-                AddNoteView()
+                if editMode == .inactive {
+                    AddNoteView()
+                }
+                else {
+                    UpdateNoteView(noteEntered: $updateNote)
+                }
             })
             .onAppear(perform: {
                 fetch()
@@ -63,7 +73,6 @@ struct ContentView: View {
                         switch self.editMode {
                         case .inactive:
                             self.editMode = .active
-                            edit()
                         default:
                             self.editMode = .inactive
                         }
