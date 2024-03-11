@@ -16,6 +16,7 @@ struct ContentView: View {
     
     @State private var editMode: EditMode = .inactive
     @State private var updateNote: String = ""
+    @State private var noteId: String = ""
     
     var alert: Alert {
         Alert(title: Text("Delete note"), message: Text("Are you sure?"), primaryButton: .destructive(Text("Delete")), secondaryButton: .cancel())
@@ -41,6 +42,7 @@ struct ContentView: View {
                     }
                     .onTapGesture {
                         updateNote = note.note
+                        noteId = note._id
                         showAdd.toggle()
                     }
                 }
@@ -60,7 +62,7 @@ struct ContentView: View {
                     AddNoteView()
                 }
                 else {
-                    UpdateNoteView(noteEntered: $updateNote)
+                    UpdateNoteView(noteEntered: $updateNote, noteId: $noteId)
                 }
             })
             .onAppear(perform: {
@@ -96,6 +98,10 @@ struct ContentView: View {
         guard let notes = NetworkService().fetchNotes() else { return }
         self.notes = notes
         print("notes= \(notes)")
+        
+        if self.editMode == .active {
+            self.editMode = .inactive
+        }
     }
     
     func delete() {

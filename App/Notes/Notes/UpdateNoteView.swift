@@ -10,6 +10,7 @@ import SwiftUI
 struct UpdateNoteView: View {
     
     @Binding var noteEntered: String
+    @Binding var noteId: String
     
     var body: some View {
         HStack {
@@ -27,7 +28,7 @@ struct UpdateNoteView: View {
     }
     
     func updateNote() {
-        
+        NetworkService().updateNote(noteEntered, id: noteId)
     }
 }
 
