@@ -13,6 +13,9 @@ struct ContentView: View {
     
     @State private var showAlert = false
     @State private var deleteItem: Note?
+    
+    @State private var editMode: EditMode = .inactive
+    
     var alert: Alert {
         Alert(title: Text("Delete note"), message: Text("Are you sure?"), primaryButton: .destructive(Text("Delete")), secondaryButton: .cancel())
     }
@@ -20,12 +23,22 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(notes, id: \.self) { note in
-                Text(note.note)
-                    .padding()
-                    .onLongPressGesture {
-                        self.showAlert.toggle()
-                        self.deleteItem = note
+                if editMode == .inactive {
+                    Text(note.note)
+                        .padding()
+                        .onLongPressGesture {
+                            self.showAlert.toggle()
+                            self.deleteItem = note
+                        }
+                }
+                else {
+                    HStack {
+                        Image(systemName: "pencil.fill.circle")
+                            .foregroundStyle(.cyan)
+                        Text(note.note)
+                            .padding()
                     }
+                }
             }
             .alert("Delete note", isPresented: $showAlert, actions: {
                 HStack {
@@ -45,10 +58,26 @@ struct ContentView: View {
             })
             .navigationTitle("Notes")
             .toolbar(content: {
-                Button {
-                    showAdd.toggle()
-                } label: {
-                    Image(systemName: "plus")
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: {
+                        switch self.editMode {
+                        case .inactive:
+                            self.editMode = .active
+                            edit()
+                        default:
+                            self.editMode = .inactive
+                        }
+                        
+                    }, label: {
+                        Text(editMode == .inactive ? "Edit" : "Done")
+                    })
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showAdd.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
                 }
             })
         }
@@ -68,6 +97,10 @@ struct ContentView: View {
         NetworkService().deleteNote(noteToDelete)
         deleteItem = nil
         fetch()
+    }
+    
+    func edit() {
+        
     }
 }
 
